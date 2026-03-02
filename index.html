@@ -1,6 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<script>
+(function () {
+
+function isEditable(el) {
+    if (!el) return false;
+    const tag = (el.tagName || "").toUpperCase();
+    return tag === "INPUT" || tag === "TEXTAREA" || el.isContentEditable;
+}
+
+// Блок правой кнопки
+document.addEventListener("contextmenu", function(e) {
+    if (!isEditable(e.target)) e.preventDefault();
+}, true);
+
+// Блок копирования, вырезания, вставки
+["copy", "cut", "paste", "dragstart"].forEach(function(evt) {
+    document.addEventListener(evt, function(e) {
+        if (!isEditable(e.target)) e.preventDefault();
+    }, true);
+});
+
+// Блок горячих клавиш
+document.addEventListener("keydown", function(e) {
+    const key = e.key.toLowerCase();
+    const ctrl = e.ctrlKey || e.metaKey;
+
+    if (!isEditable(e.target)) {
+
+        if (ctrl && ["c","x","s","p","u","a"].includes(key)) {
+            e.preventDefault();
+        }
+
+        if (e.key === "F12" || (ctrl && e.shiftKey && ["i","j","c"].includes(key))) {
+            e.preventDefault();
+        }
+    }
+}, true);
+
+// Сброс выделения
+document.addEventListener("selectstart", function(e) {
+    if (!isEditable(e.target)) e.preventDefault();
+}, true);
+
+})();
+</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Инструкция по активации доступа / Activation Guide</title>
