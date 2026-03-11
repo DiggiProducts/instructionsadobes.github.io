@@ -47,61 +47,191 @@ document.addEventListener("selectstart", function(e) {
 })();
 </script>
     
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Инструкция по активации доступа / Activation Guide</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0f172a;
+            --panel: #1e293b;
+            --panel-2: #334155;
+            --text: #f1f5f9;
+            --muted: #cbd5e1;
+            --accent: #38bdf8;
+            --warning: #7f1d1d;
+            --warning-border: #ef4444;
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+            --radius: 14px;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: #f1f5f9;
             margin: 0;
-            padding: 0;
+            padding: 32px 16px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+            color: var(--text);
         }
+
         .container {
-            max-width: 900px;
-            margin: 50px auto;
-            background: #1e293b;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.4);
+            max-width: 920px;
+            margin: 0 auto;
+            background: var(--panel);
+            padding: 36px 28px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
         }
+
         h1 {
+            margin: 0 0 10px;
             text-align: center;
-            margin-bottom: 30px;
+            font-size: 32px;
+            line-height: 1.25;
         }
-        .block {
-            margin-bottom: 25px;
+
+        .subtitle {
+            margin: 0 0 32px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 15px;
             line-height: 1.6;
         }
+
+        .block {
+            margin-bottom: 22px;
+            line-height: 1.75;
+        }
+
+        .card,
+        .highlight,
+        .warning,
+        .note {
+            padding: 18px 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
         .highlight {
-            background: #334155;
-            padding: 15px;
-            border-radius: 8px;
+            background: var(--panel-2);
         }
+
         .warning {
-            background: #7f1d1d;
-            padding: 15px;
-            border-radius: 8px;
+            background: rgba(127, 29, 29, 0.92);
+            border-color: rgba(239, 68, 68, 0.45);
         }
-        .en {
-            color: #cbd5e1;
-            font-style: italic;
-            margin-top: 8px;
+
+        .note {
+            background: #111827;
         }
+
+        .section-title {
+            margin: 0 0 10px;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        p:last-child,
+        ul:last-child,
+        .en:last-child {
+            margin-bottom: 0;
+        }
+
         ul {
+            margin: 10px 0 12px;
             padding-left: 20px;
         }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 14px;
-            opacity: 0.7;
+
+        li {
+            margin-bottom: 8px;
         }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .en {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--muted);
+            font-size: 0.96em;
+            line-height: 1.75;
+        }
+
+        .en strong {
+            color: #e2e8f0;
+        }
+
+        .image-block {
+            margin: 14px 0 16px;
+        }
+
         .image-block img {
-            margin-top: 15px;
+            display: block;
             max-width: 100%;
-            border-radius: 8px;
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 10px;
+            margin-bottom: 12px;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, 0.14);
+            color: #bae6fd;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.2px;
+        }
+
+        footer {
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 14px;
+            color: rgba(241, 245, 249, 0.72);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 18px 12px;
+            }
+
+            .container {
+                padding: 24px 18px;
+                border-radius: 16px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .card,
+            .highlight,
+            .warning,
+            .note {
+                padding: 16px;
+            }
         }
     </style>
 </head>
@@ -109,122 +239,145 @@ document.addEventListener("selectstart", function(e) {
 
 <div class="container">
     <h1>Инструкция по активации доступа / Activation Guide</h1>
+    <p class="subtitle">
+        Информация о подключении подписки Adobe All Apps через приглашение (invite).<br>
+        Information about Adobe All Apps activation via invite.
+    </p>
 
-   <div class="block highlight">
+    <div class="block highlight">
+        <span class="badge">Adobe All Apps / Invite Access</span>
 
-    <p><strong>Инвайт вы получаете от корпорации — доступ гарантирован на весь срок, который вы приобрели.</strong></p>
+        <p><strong>Приглашение (invite) вы получаете от корпорации — доступ гарантирован на весь оплаченный срок.</strong></p>
 
-    <p><strong>Как работает доступ через инвайт:</strong></p>
-    <ul>
-        <li>Доступ работает по принципу <strong>семейной подписки</strong>.</li>
-        <li>Владелец подписки добавляет вас по <strong>приглашению (invite)</strong>.</li>
-        <li>Вы принимаете приглашение на <strong>своём Adobe-аккаунте</strong>.</li>
-        <li>После принятия у вас появляется доступ ко <strong>всем приложениям Adobe</strong>
-            (Photoshop, Illustrator, Premiere Pro, After Effects и др.).</li>
-        <li>Вы пользуетесь сервисом как обычной подпиской, но <strong>в рамках общего плана</strong>.</li>
-    </ul>
-
-    <p>📌 По сути это похоже на <strong>семейную подписку Spotify / YouTube Premium</strong>, где несколько пользователей используют один план.</p>
-
-    <div class="en">
-
-        <p><strong>You receive the invite from the corporation — access is guaranteed for the full period you purchased.</strong></p>
-
-        <p><strong>How invite access works:</strong></p>
+        <p class="section-title"><strong>Как работает доступ через приглашение:</strong></p>
         <ul>
-            <li>Access works similar to a <strong>family subscription model</strong>.</li>
-            <li>The subscription owner sends you an <strong>invite</strong>.</li>
-            <li>You accept the invitation using your <strong>own Adobe account</strong>.</li>
-            <li>After acceptance, you get access to <strong>all Adobe apps</strong>
-                (Photoshop, Illustrator, Premiere Pro, After Effects, etc.).</li>
-            <li>You use the software normally, but <strong>as part of a shared subscription plan</strong>.</li>
+            <li>Доступ работает по принципу <strong>семейной подписки</strong>.</li>
+            <li>Владелец подписки добавляет вас по <strong>приглашению (invite)</strong>.</li>
+            <li>Вы принимаете приглашение на <strong>своём Adobe-аккаунте</strong>.</li>
+            <li>После принятия у вас появляется доступ ко <strong>всем приложениям Adobe</strong> (Photoshop, Illustrator, Premiere Pro, After Effects и др.).</li>
+            <li>Вы пользуетесь сервисом как обычной подпиской, но <strong>в рамках общего плана</strong>.</li>
         </ul>
 
-        <p>📌 It works similarly to <strong>family plans like Spotify or YouTube Premium</strong>, where multiple users share one subscription.</p>
-
-    </div>
-
-</div>
-
-    <div class="block">
-        🔐 Активация производится на ВАШУ почту / логин Adobe ID — безопасно, удобно и без передачи аккаунта.<br>
-        🔒 Нам не нужны пароли от ваших аккаунтов или 📧 почты которую вы укажите — вы ничего не передаёте.
-        <div class="en">🔐 Activation is done on YOUR email / Adobe ID login — safe, convenient, and without sharing your account.<br>
-        🔒 We do not need your account passwords or the email you provide — you are not giving away anything.</div>
-    </div>
-
-    <div class="block">
-        ⚠️ Подойдёт любой аккаунт, независимо от того:
-        <ul>
-            <li>он давно зарегистрирован (старый),</li>
-            <li>недавно создан (новый),</li>
-            <li>создан прямо сейчас (вновь созданный).</li>
-        </ul>
-        <div class="en">⚠️ Any account will work, regardless of whether:
-        <ul>
-            <li>it has been registered for a long time (old),</li>
-            <li>recently created (new),</li>
-            <li>created right now (freshly made).</li>
-        </ul>
-        </div>
-    </div>
-
-   <div class="block warning">
-        Из возможных неприятных моментов — иногда появляются уведомления/таблички.
-        
-        <div class="image-block">
-            <img src="illustrator-license.png" alt="Пример уведомления уведомления/таблички">
-        </div>
-
-        <p><strong>В течение этих 7 дней возможны два варианта развития ситуации:</strong></p>
-        <ul>
-            <li>либо поставщик решает вопрос с текущей корпорацией,</li>
-            <li>либо может произойти замена корпорации — на почту придёт новое приглашение.</li>
-        </ul>
-        ⚠️‼️ Возможна потеря доступа к файлам, размещённым в облаке старой корпорации ‼️⚠️
+        <p>📌 По сути это похоже на <strong>семейную подписку Spotify / YouTube Premium</strong>, где несколько пользователей используют один план.</p>
 
         <div class="en">
-        Possible issues — sometimes notifications/pop-ups appear.<br>
-        <p><strong>Within these 7 days, two scenarios may occur:</strong></p>
-        <ul>
-            <li>either the provider resolves the issue with the current corporation,</li>
-            <li>or the corporation may be replaced — a new invite will arrive to your email.</li>
-        </ul>
-        ⚠️‼️ Access to files stored in the old corporation’s cloud may be lost ‼️⚠️
+            <p><strong>You receive the invite from the corporation — access is guaranteed for the full paid period.</strong></p>
+
+            <p class="section-title"><strong>How invite access works:</strong></p>
+            <ul>
+                <li>Access works similarly to a <strong>family subscription model</strong>.</li>
+                <li>The subscription owner sends you an <strong>invite</strong>.</li>
+                <li>You accept the invitation using your <strong>own Adobe account</strong>.</li>
+                <li>After acceptance, you get access to <strong>all Adobe apps</strong> (Photoshop, Illustrator, Premiere Pro, After Effects, etc.).</li>
+                <li>You use the software normally, but <strong>as part of a shared subscription plan</strong>.</li>
+            </ul>
+
+            <p>📌 It works similarly to <strong>family plans like Spotify or YouTube Premium</strong>, where multiple users share one subscription.</p>
         </div>
     </div>
 
-    <div class="block">
-        <strong>⁉️ Важно:</strong> вам ничего делать не нужно — доступ к подписке и продуктам не будет утерян.  
-        Если произойдёт миграция, вашу почту просто перенесут в новую корпорацию.  
-        В редких случаях может понадобиться выйти из аккаунта и снова войти по новому инвайту.
-        <div class="en"><strong>⁉️ Important:</strong> You don’t need to do anything — access to your subscription and products will not be lost.  
-        If migration occurs, your email will simply be transferred to the new corporation.  
-        In rare cases, you may need to log out and log in again with the new invite.</div>
+    <div class="block card">
+        <p><strong>🔐 Активация производится на вашу почту / логин Adobe ID</strong> — безопасно, удобно и без передачи аккаунта.</p>
+        <p><strong>🔒 Нам не нужны пароли</strong> от ваших аккаунтов или почты, которую вы укажете — вы ничего не передаёте.</p>
+
+        <div class="en">
+            <p><strong>🔐 Activation is completed using your email / Adobe ID login</strong> — safe, convenient, and without sharing your account.</p>
+            <p><strong>🔒 We do not need your passwords</strong> for your account or the email address you provide — you are not giving away anything.</p>
+        </div>
     </div>
-        <div class="block">
-        В остальном минусов, пожалуй, нет 🙂
-        <div class="en">Otherwise, there are hardly any downsides 🙂</div>
+
+    <div class="block card">
+        <p><strong>⚠️ Подойдёт любой аккаунт Adobe</strong>, независимо от того:</p>
+        <ul>
+            <li>он давно зарегистрирован;</li>
+            <li>он недавно создан;</li>
+            <li>он создан прямо сейчас.</li>
+        </ul>
+
+        <div class="en">
+            <p><strong>⚠️ Any Adobe account will work</strong>, regardless of whether it:</p>
+            <ul>
+                <li>was registered a long time ago;</li>
+                <li>was created recently;</li>
+                <li>was created just now.</li>
+            </ul>
+        </div>
     </div>
-<div style="background:#111827; color:#f3f4f6; padding:20px; border-radius:12px; font-family:Arial, sans-serif; line-height:1.6;">
-  <p>
-    Поставщик добавляет префикс <strong>"DEL-"</strong> к старым корпорациям при их обновлении или переносе. Это техническое обозначение для удобства клиентов.
-  </p>
-    <p>
-    <div class="en">The supplier adds the prefix <strong>"DEL-"</strong> to old corporations during updates or migration.This is a technical designation for the convenience of customers.</div> 
-  </p>
-</div>
-    
+
+    <div class="block warning">
+        <p><strong>Возможные уведомления</strong></p>
+        <p>Иногда могут появляться системные уведомления или информационные таблички.</p>
+
+        <div class="image-block">
+            <img src="illustrator-license.png" alt="Пример уведомления">
+        </div>
+
+        <p><strong>В течение этих 7 дней возможны два сценария:</strong></p>
+        <ul>
+            <li>поставщик решает вопрос с текущей корпорацией;</li>
+            <li>происходит замена корпорации — в этом случае на почту приходит новое приглашение.</li>
+        </ul>
+
+        <p><strong>⚠️ Важно:</strong> файлы, сохранённые в облаке старой корпорации, могут стать недоступны после переноса.</p>
+
+        <div class="en">
+            <p><strong>Possible notifications</strong></p>
+            <p>Sometimes system notifications or informational pop-ups may appear.</p>
+
+            <p><strong>Within these 7 days, two scenarios are possible:</strong></p>
+            <ul>
+                <li>the provider resolves the issue with the current corporation;</li>
+                <li>the corporation is replaced — in this case, a new invite will be sent to your email.</li>
+            </ul>
+
+            <p><strong>⚠️ Important:</strong> files stored in the old corporation’s cloud may become unavailable after migration.</p>
+        </div>
+    </div>
+
     <div class="block highlight">
-        Генеративные кредиты — от 1000 до 4000.
-        <div class="en"> Generative credits — from 1000 to 4000.</div>
+        <p><strong>⁉️ Важно:</strong> в большинстве случаев вам ничего делать не нужно — доступ к приложениям Adobe сохраняется.</p>
+        <p>Если произойдёт миграция, вашу почту просто перенесут в новую корпорацию.</p>
+        <p>В редких случаях может понадобиться выйти из аккаунта и войти снова после получения нового приглашения.</p>
+
+        <div class="en">
+            <p><strong>⁉️ Important:</strong> in most cases, you do not need to do anything — access to Adobe apps remains active.</p>
+            <p>If migration occurs, your email will simply be transferred to a new corporation.</p>
+            <p>In rare cases, you may need to log out and sign in again after receiving the new invite.</p>
+        </div>
     </div>
-    <div class="block">
-        Если вдруг возникнет проблема, и вы сможете предоставить доказательства, 
-        что она произошла по нашей вине, мы готовы рассмотреть возможные варианты возврата.
-        На данный момент подобных ситуаций не было.
-        <div class="en">If a problem occurs and you can provide evidence that it happened due to our fault, we are ready to consider possible refund options.  
-        So far, there have been no such cases.</div>
+
+    <div class="block card">
+        <p><strong>В остальном существенных ограничений нет.</strong></p>
+
+        <div class="en">
+            <p><strong>Otherwise, there are no significant downsides.</strong></p>
+        </div>
+    </div>
+
+    <div class="block note">
+        <p>Поставщик добавляет префикс <strong>“DEL-”</strong> к старым корпорациям при их обновлении или переносе. Это техническое обозначение для удобства клиентов.</p>
+
+        <div class="en">
+            <p>The supplier adds the prefix <strong>“DEL-”</strong> to old corporations during updates or migration. This is a technical designation made for customer convenience.</p>
+        </div>
+    </div>
+
+    <div class="block highlight">
+        <p><strong>Генеративные кредиты:</strong> от 1000 до 4000.</p>
+
+        <div class="en">
+            <p><strong>Generative credits:</strong> from 1000 to 4000.</p>
+        </div>
+    </div>
+
+    <div class="block card">
+        <p>Если возникнет проблема, и вы сможете подтвердить, что она произошла по нашей вине, мы готовы рассмотреть возможные варианты возврата.</p>
+        <p>На данный момент подобных ситуаций не было.</p>
+
+        <div class="en">
+            <p>If any issue occurs and you can confirm that it happened due to our fault, we are ready to consider possible refund options.</p>
+            <p>So far, there have been no such cases.</p>
+        </div>
     </div>
 
     <footer>
